@@ -1,0 +1,16 @@
+{
+    "folders":
+    [
+        {
+            "name": "Blogging Vue Client",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "SublimeLinter.linters.eslint.selector": "text.html.vue, source.js - meta.attribute-with-value",
+        "ESLint-Formatter": {
+            "format_on_save": true,
+            "format_on_save_extensions": ["js", "vue"]
+        }
+    }
+}
