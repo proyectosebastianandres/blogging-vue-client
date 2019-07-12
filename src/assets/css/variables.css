@@ -1,0 +1,12 @@
+:root {
+    /* Typography */
+    --sans-font: 'PT Sans', Helvetica, Arial, sans-serif;
+    --serif-font: 'Volkhov', Georgia, serif;
+    --font-size-base: 16px;
+
+    /* Colors */
+    --primary: #0096FF;
+    --primary-dark: #0886DE;
+    --secondary: #45567C;
+    --secondary-dark: #7A88A7;
+}
