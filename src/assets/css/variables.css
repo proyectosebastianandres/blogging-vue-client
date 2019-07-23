@@ -9,4 +9,8 @@
     --primary-dark: #0886DE;
     --secondary: #45567C;
     --secondary-dark: #7A88A7;
+    --on-error: red;
+    --on-success: green;
+    --on-warning: yellow;
+    --on-info: lightblue;
 }
