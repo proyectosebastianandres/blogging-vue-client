@@ -26,18 +26,31 @@
         <BInput type="email" />
       </div>
     </section>
+
+    <section>
+      <h1>Card</h1>
+      <div class="show-box">
+        <BCard>
+          <BInput placeholder="Email" type="email" />
+          <BInput placeholder="Password" type="password" />
+          <BButton secondary>Login</BButton>
+        </BCard>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import BButton from '@/components/BButton'
 import BInput from '@/components/BInput'
+import BCard from '@/components/BCard'
 
 export default {
   name: 'Components',
   components: {
     BButton,
-    BInput
+    BInput,
+    BCard
   },
   data () {
     return {
