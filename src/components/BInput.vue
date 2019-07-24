@@ -1,7 +1,7 @@
 <template>
   <div :class="classes">
     <label class="b-input__label" v-if="hasLabel" for="">{{label}}</label>
-    <input :type="type" :placeholder="placeholder" @input="onInput">
+    <input :name="name" :id="id" :type="type" :placeholder="placeholder" @input="onInput">
     <span class="b-input__hint" v-if="hasHint">{{hint}}</span>
   </div>
 </template>
@@ -15,6 +15,8 @@ export default {
       default: 'text'
     },
     label: String,
+    id: String,
+    name: String,
     placeholder: String,
     hint: String,
     hasError: Boolean
@@ -69,7 +71,7 @@ export default {
 }
 
 .b-input input:invalid,
-.b-input .has-error input {
+.b-input.has-error input {
   border: 1px solid var(--on-error);
   box-shadow: none;
 }
