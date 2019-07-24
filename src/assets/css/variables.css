@@ -2,15 +2,18 @@
     /* Typography */
     --sans-font: 'PT Sans', Helvetica, Arial, sans-serif;
     --serif-font: 'Volkhov', Georgia, serif;
-    --font-size-base: 16px;
+    --font-size-base: 18px;
 
     /* Colors */
+    --neutral-light: #7A88A7;
+    --neutral-dark: #45567C;
+
     --primary: #0096FF;
     --primary-dark: #0886DE;
     --secondary: #45567C;
     --secondary-dark: #7A88A7;
-    --on-error: red;
-    --on-success: green;
+    --on-error: #F6434E;
+    --on-success: #41CF9F;
     --on-warning: yellow;
     --on-info: lightblue;
 }

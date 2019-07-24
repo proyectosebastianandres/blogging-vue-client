@@ -12,8 +12,17 @@
     <section>
       <h1>Inputs</h1>
       <div class="show-box">
-        <BInput />
-        <BInput :hasError="false" type="number" />
+        <BInput
+          label="Usename"
+          v-model="hello"
+          hint="Lorem ipsum dolor."
+        />
+        <BInput
+          :hasError="true"
+          placeholder="password"
+          type="number"
+          hint="Lorem ipsum dolor sit."
+        />
         <BInput type="email" />
       </div>
     </section>
@@ -29,6 +38,11 @@ export default {
   components: {
     BButton,
     BInput
+  },
+  data () {
+    return {
+      hello: 'hola'
+    }
   }
 }
 </script>
