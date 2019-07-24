@@ -13,14 +13,16 @@ export default {
       default: 'button'
     },
     primary: Boolean,
-    secondary: Boolean
+    secondary: Boolean,
+    fullWidth: Boolean
   },
   computed: {
     classes () {
       return {
         'btn': true,
         'primary': this.primary,
-        'secondary': this.secondary
+        'secondary': this.secondary,
+        'full-width': this.fullWidth
       }
     }
   },
@@ -87,4 +89,7 @@ export default {
   box-shadow: none;
 }
 
+.btn.full-width {
+  width: 100%;
+}
 </style>
