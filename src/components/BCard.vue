@@ -1,12 +1,19 @@
 <template>
-  <div class="b-card">
+  <div :class="classes">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'BCard'
+  name: 'BCard',
+  computed: {
+    classes () {
+      return {
+        'b-card': true
+      }
+    }
+  }
 }
 </script>
 
