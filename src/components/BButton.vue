@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" @click="onClick" :class="classes">
+  <component :is="tag" :disabled="disabled" @click="onClick" :class="classes">
     <slot></slot>
   </component>
 </template>
@@ -12,6 +12,7 @@ export default {
       type: String,
       default: 'button'
     },
+    disabled: Boolean,
     primary: Boolean,
     secondary: Boolean,
     fullWidth: Boolean
@@ -91,5 +92,10 @@ export default {
 
 .btn.full-width {
   width: 100%;
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: .5;
 }
 </style>
