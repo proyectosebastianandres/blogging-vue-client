@@ -4,7 +4,7 @@ function response ($code, $message) {
   http_response_code($code);
 
   $response = [
-    "code" => $code,
+    "status" => $code,
     "message" => $message
   ];
 

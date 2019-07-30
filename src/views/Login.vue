@@ -6,23 +6,34 @@
       </div>
       <div class="login__actions">
         <a href="#" class="login__actions--current">Login</a>
-        <a href="/register">Singup</a>
+        <router-link to="/register">Singup</router-link>
       </div>
     </div>
-    <form name="login">
+    <form name="login" @submit.prevent="login">
       <BInput
         placeholder="Email"
+        name="email"
+        id="email"
         v-model="user.email"
         :hint="messages.email"
         type="email"
+        :hasError="!!messages.email"
       />
       <BInput
         placeholder="Password"
+        name="password"
+        id="password"
         v-model="user.password"
         :hint="messages.password"
         type="password"
+        :hasError="!!messages.password"
       />
-      <BButton primary fullWidth type="submit">Login</BButton>
+      <BAlert
+        v-if="!!messages.error"
+        type="error"
+        :message="messages.error"
+      />
+      <BButton :disabled="loading" primary fullWidth type="submit">Login</BButton>
     </form>
   </BCard>
 </template>
@@ -31,13 +42,15 @@
 import BInput from '@/components/BInput'
 import BButton from '@/components/BButton'
 import BCard from '@/components/BCard'
+import BAlert from '@/components/BAlert'
 
 export default {
   name: 'Login',
   components: {
     BInput,
     BButton,
-    BCard
+    BCard,
+    BAlert
   },
   data () {
     return {
@@ -47,8 +60,48 @@ export default {
       },
       messages: {
         email: '',
-        password: ''
+        password: '',
+        error: ''
+      },
+      loading: false
+    }
+  },
+  methods: {
+    login () {
+      if (this.validateForm()) {
+        this.loading = true
+        fetch('http://localhost:3000/login.php?delay=2', {
+          method: 'post',
+          body: JSON.stringify(this.user)
+        })
+          .then(res => res.json())
+          .then(response => {
+            if (response.status !== 200) {
+              this.messages.error = response.message
+              this.loading = false
+            } else {
+              this.$router.push('/posts')
+            }
+          })
+          .catch(err => {
+            this.messages.error = err.message
+          })
       }
+    },
+    validateForm () {
+      if (this.user.email === '') {
+        this.messages.email = 'Write your email'
+        return false
+      } else {
+        this.messages.email = ''
+      }
+      if (this.user.password === '') {
+        this.messages.password = 'Write your password'
+        return false
+      } else {
+        this.messages.password = ''
+      }
+      return true
     }
   }
 }

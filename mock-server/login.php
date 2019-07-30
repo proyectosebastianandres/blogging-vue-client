@@ -13,14 +13,14 @@ if (isset($_GET['delay'])) {
 if (!isset($input->email) || !isset($input->password)) {
   response(
     400,
-    "No se han enviado datos"
+    "No data sended"
   );
 }
 
 if ($input->email != 'user@mail.com' || $input->password != 'pass') {
   response(
     403,
-    "Usuario o contraseña inválidos'"
+    "Email or password are wrong"
   );
 } else {
   response(
